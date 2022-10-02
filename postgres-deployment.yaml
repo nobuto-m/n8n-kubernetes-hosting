@@ -23,7 +23,11 @@ spec:
       containers:
         - image: postgres:11
           name: postgres
-          resources: {}
+          resources:
+            requests:
+              memory: "250Mi"
+            limits:
+              memory: "500Mi"
           ports:
             - containerPort: 5432
           volumeMounts:
