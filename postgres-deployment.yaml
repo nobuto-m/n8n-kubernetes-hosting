@@ -24,10 +24,12 @@ spec:
         - image: postgres:11
           name: postgres
           resources:
-            requests:
-              memory: "250Mi"
             limits:
-              memory: "500Mi"
+              cpu: "4"
+              memory: 4Gi
+            requests:
+              cpu: "1"
+              memory: 2Gi
           ports:
             - containerPort: 5432
           volumeMounts:
