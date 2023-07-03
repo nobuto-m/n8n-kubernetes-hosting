@@ -24,23 +24,7 @@ spec:
             - sleep 5; n8n start
           env:
             - name: DB_TYPE
-              value: postgresdb
-            - name: DB_POSTGRESDB_HOST
-              value: postgres-service.n8n.svc.cluster.local
-            - name: DB_POSTGRESDB_PORT
-              value: "5432"
-            - name: DB_POSTGRESDB_DATABASE
-              value: n8n
-            - name: DB_POSTGRESDB_USER
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-secret
-                  key: POSTGRES_NON_ROOT_USER
-            - name: DB_POSTGRESDB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-secret
-                  key: POSTGRES_NON_ROOT_PASSWORD
+              value: sqlite
             - name: N8N_BASIC_AUTH_ACTIVE
               value: "true"
             - name: N8N_BASIC_AUTH_USER
@@ -77,6 +61,3 @@ spec:
         - name: n8n-secret
           secret:
             secretName: n8n-secret
-        - name: postgres-secret
-          secret:
-            secretName: postgres-secret
