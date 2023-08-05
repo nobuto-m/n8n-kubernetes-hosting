@@ -30,6 +30,10 @@ spec:
               value: http
             - name: N8N_PORT
               value: "5678"
+            - name: GENERIC_TIMEZONE
+              value: utc
+            - name: EXECUTIONS_DATA_MAX_AGE
+              value: 168 # 1 week
           image: n8nio/n8n
           name: n8n
           ports:
